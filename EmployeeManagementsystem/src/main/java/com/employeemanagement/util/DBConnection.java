@@ -11,21 +11,29 @@ public class DBConnection {
 
     private static final String USER = "root";
 
-    private static final String PASSWORD = "your-railway-password";
+    private static final String PASSWORD = "pibhEiLDyXaFFJLPzeBYCWrDjooEXZSC";
 
     public static Connection getConnection() {
-
-        Connection c = null;
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
-            c = DriverManager.getConnection(URL, USER, PASSWORD);
+            Connection c = DriverManager.getConnection(
+                    URL,
+                    USER,
+                    PASSWORD
+            );
+
+            System.out.println("Railway MySQL connection successful!");
+
+            return c;
 
         } catch (ClassNotFoundException | SQLException e) {
-            e.printStackTrace();
-        }
 
-        return c;
+            System.out.println("DATABASE CONNECTION FAILED!");
+            e.printStackTrace();
+
+            return null;
+        }
     }
 }
