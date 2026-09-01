@@ -7,11 +7,11 @@ import java.sql.SQLException;
 public class DBConnection {
 
     private static final String URL =
-            "jdbc:mysql://localhost:3306/employee_management";
+            "jdbc:mysql://altaria.proxy.rlwy.net:37052/railway";
 
     private static final String USER = "root";
 
-    private static final String PASSWORD = "YOUR_PASSWORD";
+    private static final String PASSWORD = "your-railway-password";
 
     public static Connection getConnection() {
 
@@ -21,7 +21,6 @@ public class DBConnection {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
             c = DriverManager.getConnection(URL, USER, PASSWORD);
-
 
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
